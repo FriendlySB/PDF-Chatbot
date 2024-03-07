@@ -2,7 +2,6 @@ langchain==0.1.11
 numpy==1.25.2
 Pillow==10.2.0
 protobuf==4.25.3
-pywin32==306
 streamlit==1.31.1
 streamlit_chat==0.1.1
 tornado==6.1
