@@ -45,9 +45,13 @@ class FileIngestor:
         #llm = AutoModel.from_pretrained("TheBloke/Llama-2-7B-Chat-GGUF")
 
         # Create a conversational chain
+        # Membuat chain conversation dari Llama 2
         chain = ConversationalRetrievalChain.from_llm(llm=llm, retriever=db.as_retriever())
 
         # Function for conversational chat
+        # Memasukkan chat baru bagi Streamlit
+        # Query adalah pertanyaan yang kita berikan, answer jawaban, dan history agar Llama mengetahui
+        # konteks untuk percakapan kita dengan dia
         def conversational_chat(query):
             result = chain({"question": query, "chat_history": st.session_state['history']})
             st.session_state['history'].append((query, result["answer"]))
@@ -65,6 +69,7 @@ class FileIngestor:
             st.session_state['past'] = ["Hey ! 👋"]
 
         # Create containers for chat history and user input
+        # Buat container untuk display UI
         response_container = st.container()
         container = st.container()
 
@@ -74,6 +79,7 @@ class FileIngestor:
                 user_input = st.text_input("Query:", placeholder="Talk to PDF data 🧮", key='input')
                 submit_button = st.form_submit_button(label='Send')
 
+            # Jika kita mengklik tombol submit/enter dan user input telah diisi, maka conversation akan kita mulai
             if submit_button and user_input:
                 output = conversational_chat(user_input)
                 st.session_state['past'].append(user_input)
