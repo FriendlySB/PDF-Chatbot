@@ -31,7 +31,7 @@ class Loadllm:
         # verbose = Print output verbose
         llm = LlamaCpp(
             model_path=model_path,
-            n_gpu_layers=40,
+            n_gpu_layers=20,
             n_batch=512,
             n_ctx=4096,
             max_tokens=4096,

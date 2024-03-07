@@ -25,7 +25,9 @@ share/python-wheels/
 .installed.cfg
 *.egg
 MANIFEST
-model/
+*.Q4_K_M.gguf
+*.gguf
+*.Q4_K_M
 
 # PyInstaller
 #  Usually these files are written by a python script from a template
