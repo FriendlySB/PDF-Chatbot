@@ -32,7 +32,8 @@ class FileIngestor:
         db.save_local(DB_FAISS_PATH)
 
         # Load the language model
-        llm = AutoModel.from_pretrained("TheBloke/Llama-2-7B-Chat-GGUF")
+        llm = Loadllm.load_llm()
+        #llm = AutoModel.from_pretrained("TheBloke/Llama-2-7B-Chat-GGUF")
 
         # Create a conversational chain
         chain = ConversationalRetrievalChain.from_llm(llm=llm, retriever=db.as_retriever())
