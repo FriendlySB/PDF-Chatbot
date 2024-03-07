@@ -1,3 +1,5 @@
+# Import streamlit, langchanin, PyMuPDFLoader, dan file loadllm
+# PyMuPDFLoader adalah library untuk mengekstraksi, menganalisa, dan mengkonversi data dari dokumen PDF
 import streamlit as st
 from langchain.document_loaders import PyMuPDFLoader
 from loadllm import Loadllm
@@ -8,8 +10,11 @@ from langchain.vectorstores import FAISS
 from langchain.chains import ConversationalRetrievalChain
 
 # Load model directly
-from transformers import AutoModel
+#from transformers import AutoModel
 
+# Path dimana hasil vectore score dari FAISS akan disimpan
+# FAISS (Facebook AI Similarity Search) adalah sebuah library untuk mencari embedding dalam dokumen yang serupa satu dengan yang lainnya
+# FAISS mempunyai algoritma yang mencari kesamaan di set vector dengan ukuran apapun
 DB_FAISS_PATH = 'vectorstore/db_faiss'
 
 class FileIngestor:
@@ -25,6 +30,9 @@ class FileIngestor:
         data = loader.load()
 
         # Create embeddings using Sentence Transformers
+        # Word embedding dari dokumen akan dibuat menggunakan sentence-transformers yang disediakan HuggingFace
+        # Transformer ini berbasis BERT dan bisa memetakan kalimat dan paragraf menjadi vector space dengan 
+        # densitas 384 dimensi
         embeddings = HuggingFaceEmbeddings(model_name='sentence-transformers/all-MiniLM-L6-v2')
 
         # Create a FAISS vector store and save embeddings
@@ -32,6 +40,7 @@ class FileIngestor:
         db.save_local(DB_FAISS_PATH)
 
         # Load the language model
+        # Load model Llama 2 yang telah disiapkan di file loadllm.py
         llm = Loadllm.load_llm()
         #llm = AutoModel.from_pretrained("TheBloke/Llama-2-7B-Chat-GGUF")
 

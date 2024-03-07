@@ -9,3 +9,4 @@ transformers==4.26.1
 pymupdf
 sentence-transformers
 faiss-cpu
+llama-cpp-python
