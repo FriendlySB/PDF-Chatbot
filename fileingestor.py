@@ -15,6 +15,7 @@ from langchain.chains import ConversationalRetrievalChain
 # Path dimana hasil vectore score dari FAISS akan disimpan
 # FAISS (Facebook AI Similarity Search) adalah sebuah library untuk mencari embedding dalam dokumen yang serupa satu dengan yang lainnya
 # FAISS mempunyai algoritma yang mencari kesamaan di set vector dengan ukuran apapun
+# FAISS bisa mencari melalui banyak informasi dengan cepat dan memilih mereka yang penting
 DB_FAISS_PATH = 'vectorstore/db_faiss'
 
 class FileIngestor:
