@@ -34,7 +34,7 @@ PDF-Chatbot
     requirements.txt
 
 Tahap penggunaan
-1. Download model kami pada link Google Drive berikut : https://drive.google.com/file/d/1yDyz7Ftcob25fjRxZrR0p8DTaawBrFkj/view?usp=sharing
+1. Download model kami pada link Google Drive berikut : https://bit.ly/model-PDF-Chatbot
 2. Clone atau download source code kami dari github pada link github berikut : https://github.com/FriendlySB/PDF-Chatbot
 3. Di dalam folder PDF-Chatbot, buat sebuah folder bernama model
 4. Pindahkan model yang telah didownload ke dalam folder tersebut
