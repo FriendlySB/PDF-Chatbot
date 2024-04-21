@@ -43,8 +43,7 @@ class FileIngestor:
         # Load the language model
         # Load model Llama 2 yang telah disiapkan di file loadllm.py
         llm = Loadllm.load_llm()
-        #llm = AutoModel.from_pretrained("TheBloke/Llama-2-7B-Chat-GGUF")
-
+        
         # Create a conversational chain
         # Membuat chain conversation dari Llama 2
         chain = ConversationalRetrievalChain.from_llm(llm=llm, retriever=db.as_retriever())

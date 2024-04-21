@@ -31,14 +31,15 @@ class Loadllm:
         # verbose = Print output verbose
         llm = LlamaCpp(
             model_path=model_path,
-            n_gpu_layers=20,
+            n_gpu_layers=-1,
             n_batch=512,
             n_ctx=4096,
-            max_tokens=4096,
+            max_tokens=256,
             local_files_only = True,
             f16_kv=True,  # MUST set to True, otherwise you will run into problem after a couple of calls
             callback_manager=callback_manager,
             verbose=True,
         )
         # Return model Llama yang telah siap
+        print("Done Loading Model")
         return llm
